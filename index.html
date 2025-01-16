@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breeze</title>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/config/app-config.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/icons/fonts/fonts.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+    <style>
+        /* Style for the app loader to make it centered */
+        .app-loader-busy {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            display: block;
+        }
+
+        /* Initially show the loader */
+        .loading .app-loader-busy {
+            display: block;
+        }
+
+        /* Hide the loader once the page is loaded */
+        .loaded .app-loader-busy {
+            display: none;
+        }
+
+        .EpicText {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="loading">
+    <div class="app-loader-busy loader-lg animate">
+        <svg viewBox="0 0 16 16">
+            <circle class="app-ldr-busy" cx="8px" cy="8px" r="7px"></circle>
+        </svg>
+    </div>
+
+    <!-- Your page content goes here -->
+    <h1 id="element" class="EpicText"></h1> <!-- Apply EpicText class here -->
+    <script>
+        var typed = new Typed('#element', {
+        // Waits 1000ms after typing "First"
+        strings: ['This is an first ^100 sentence.',
+        'This is an sec^500ond ^500 sentence.'],
+        typeSpeed: 40,
+        smartBackspace: true, // Default value
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+        backSpeed: 40,
+        });
+      </script>
+
+    
+
+    <!-- JS to change the body class once the page is fully loaded (loading) -->
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
